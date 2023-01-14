@@ -1,0 +1,55 @@
+.FilterAndProductsBox{
+    width: 80%;
+    height: 80vh;
+    margin: auto;
+    /* border: 2px solid blue; */
+    /* position: absolute; */
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+
+}
+.FilterDiv{
+    width: 20%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding-left: 20px;
+}
+
+.filterBox{
+    display: flex;
+    gap: 5px;
+}
+.filterBox input{
+    width: 30px;
+    margin-bottom: 5px;
+}
+.filterBox label{
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.ProductsDiv{
+    width: 75%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+.insideProductBox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.ProductTitle{
+    display: flex;
+    margin-left: 20px;
+}
+.product{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.image{
+    width: 200px;
+}
+.cartButton{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+}
