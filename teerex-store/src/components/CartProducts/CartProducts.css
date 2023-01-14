@@ -1,7 +1,8 @@
 .CartProducts {
   width: 50%;
   margin: auto;
-  height: 350px;
+  padding-bottom: 20px;
+  /* height: 350px; */
   border-bottom: 1px solid teal;   
   margin-top: 20px;
 }

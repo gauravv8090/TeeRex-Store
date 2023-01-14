@@ -1,23 +1,49 @@
 import React from "react";
+import { useEffect } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 import "./CartProducts.css";
 
+
 const CartProducts = () => {
   const { cart, addCart, removeFromCart } = useContext(CartContext);
-
+  let TotalPrice = 0;
+  
   const handelSelectQuantity = (e) => {
-    console.log(typeof cart.quantity);
-
+    // console.log(typeof cart.quantity);
+    
+    CalculateTotal()
+    
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].id == +e.target.name) {
         if (+cart[i].quantity < +e.target.value) {
           alert(`Sorry, only ${cart[i].quantity} quantity is avaliable!!`);
           e.target.value = +cart[i].quantity;
+          // console.log(cart[i].imageURL);
+          
         }
+        const arr= document.querySelectorAll(".qtyImage");
+        arr[i].alt = e.target.value;  
       }
     }
   };
+
+  const totalPriceCalculated = ()=>{
+    
+    for(let i=0; i<cart.length; i++){
+      TotalPrice += cart[i].price
+    }
+    console.log(TotalPrice)
+  }
+
+  totalPriceCalculated()
+
+  console.log(TotalPrice)
+  const CalculateTotal = (e)=>{
+    // console.log(cart[1].price, "calculating")
+    const arr= document.querySelectorAll(".qtyImage");
+    console.log(arr[0].alt);
+  }
 
 
   const handelDeleteFromCart = (id)=>{
@@ -39,7 +65,7 @@ const CartProducts = () => {
       {cart.map((prod) => {
         return (
           <div key={prod.id} className="eachSingleProductOfCart">
-            <img src={prod.imageURL} alt="" />
+            <img src={prod.imageURL} alt="1" className="qtyImage" />
             <div className="CartNameAndPrice">
               <div className="name">{prod.name}</div>
               <div className="price">Rs. {prod.price}</div>
@@ -63,6 +89,9 @@ const CartProducts = () => {
           </div>
         );
       })}
+      <div>
+        Total {TotalPrice}
+      </div>
     </div>
   );
 };
