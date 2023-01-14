@@ -43,6 +43,8 @@
     margin-left: 20px;
 }
 .product{
+    max-height: fit-content;
+    height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .image{
@@ -52,4 +54,13 @@
     background-color: black;
     color: white;
     border-radius: 5px;
+    padding: 5px;
 }
+.cartButton:hover{
+    background-color: rgb(95, 94, 94);
+}
+
+
+
+
+ 

@@ -28,3 +28,11 @@
   color: black;
   text-decoration: none;
 }
+.CartLogoDiv{
+  display: flex;
+  /* justify-content: start; */
+  align-items: center;
+}
+.CartLogoDiv h2{
+  margin-top: -10px;
+}
