@@ -1,16 +1,22 @@
 import React from 'react'
+import { useContext } from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import { ProductContext } from '../../context/productContext'
 import './FilterAndProducts.css'
 
 const FilterAndProducts = () => {
 
   const [data, setData] =  useState([])
 
+  const {product, addProduct, searchedData} = useContext(ProductContext);
+
+  // console.log(product);
+
   const fetchData = ()=>{
     fetch('https://geektrust.s3.ap-southeast-1.amazonaws.com/coding-problems/shopping-cart/catalogue.json')
     .then((res)=>res.json())
-    .then((res)=>setData(res))
+    .then((res)=>addProduct(res))
   }
   useEffect(()=>{
     fetchData()
@@ -78,7 +84,7 @@ const FilterAndProducts = () => {
       </div>
       <div className='ProductsDiv' >
         {
-          data.map((ele)=>{
+        searchedData.length === 0 ? product.map((ele)=>{
             return <div key={ele.id} className='product' >
               <div className='ProductTitle' >
               <h3>{ele.name}</h3>
@@ -87,9 +93,21 @@ const FilterAndProducts = () => {
               <div className='insideProductBox' >
                   <h4> Price: Rs.{ele.price}</h4>
                   <button className='cartButton' >Add to cart</button>
-              </div>
+              </div> 
 
-            </div>
+            </div> 
+          }) :  searchedData.map((ele)=>{
+            return <div key={ele.id} className='product' >
+              <div className='ProductTitle' >
+              <h3>{ele.name}</h3>
+              </div>
+              <img className='image' src={ele.imageURL} alt="" />
+              <div className='insideProductBox' >
+                  <h4> Price: Rs.{ele.price}</h4>
+                  <button className='cartButton' >Add to cart</button>
+              </div> 
+
+            </div> 
           })
         }
       </div>
