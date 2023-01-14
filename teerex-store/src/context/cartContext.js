@@ -7,6 +7,15 @@ const CartContextProvider = ({ children }) => {
 
     const [cart, SetCart] = useState([]);
     // const [searchedData, setSearchedData ] = useState([]);
+
+    const removeFromCart = (id)=>{
+      const data= cart.filter((el)=>{
+        return +el.id !== id; 
+      })
+      console.log(data);
+      SetCart(data);
+    }
+
     const addCart = (product)=>{
         var alreadyPresent = false;
         if(cart.length>0){
@@ -23,7 +32,7 @@ const CartContextProvider = ({ children }) => {
 
 
   return (
-    <CartContext.Provider value={{cart, addCart}}  >
+    <CartContext.Provider value={{cart, addCart, removeFromCart}}  >
       {children}
     </CartContext.Provider>
   );
