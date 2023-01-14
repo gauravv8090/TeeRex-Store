@@ -1,0 +1,30 @@
+.Navbar {
+  height: 100px;
+  width: 100%;
+  background-color: rgb(215, 210, 210);
+  display: flex;
+}
+.left {
+  width: 50%;
+  height: 100px;
+  /* background-color: pink; */
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 50px;
+  align-items: center;
+}
+.right {
+  width: 50%;
+  height: 100px;
+  /* background-color: pink; */
+  padding-right: 50px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  justify-content: flex-end;
+}
+.ProductTag,
+.CartIcon {
+  color: black;
+  text-decoration: none;
+}
