@@ -91,8 +91,8 @@ const CartProducts = () => {
               <div className="price">Rs. {prod.price}</div>
             </div>
             <div>
-              <label>Qty:</label>
-              <select name={prod.id} onClick={handelSelectQuantity}>
+              <label className="qtyLable" >Qty:</label>
+              <select name={prod.id} className='Select' onClick={handelSelectQuantity}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -110,7 +110,7 @@ const CartProducts = () => {
         );
       })}
       <div className="TotalPriceDiv" >
-        Total {TotalPrice}
+        Total Amount: Rs. {TotalPrice}
       </div>
     </div>
   );

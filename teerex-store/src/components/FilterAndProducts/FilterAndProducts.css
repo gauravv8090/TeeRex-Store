@@ -44,7 +44,7 @@
 }
 .product{
     max-height: fit-content;
-    height: fit-content;
+    height: 330px;
     width: 300px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }

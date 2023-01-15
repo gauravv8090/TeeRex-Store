@@ -1,10 +1,8 @@
 .CartProducts {
   width: 50%;
   margin: auto;
-  /* padding-bottom: 0px; */
-  /* height: 350px; */
-  /* border-bottom: 1px solid teal;    */
   margin-top: 20px;
+  border: 1px solid red;
 }
 .eachSingleProductOfCart {
   width: 100%;
@@ -31,14 +29,71 @@
 .DeleteFromCart{
     background-color: white;
     border-radius: 5px;
-    border: 1px solid black;
+    border: 1px solid grey;
     padding: 5px;
 }
 .TotalPriceDiv{
-  width: 100%;
+  width: 90%;
   padding: 20px;
   margin-top: 30px;
   border-top: 1px solid grey;
   font-size: 25px;
   font-weight: 700;
+}
+
+.qtyLable{
+  font-size: large;
+   font-weight: 600;  
+}
+.Select{
+  border: 1px solid grey;
+  border-radius: 10px;
+  margin-left: 5px;
+  font-weight:600 ;
+  outline: none;
+  padding: 5px;
+}
+
+@media all and (min-width:600px) and (max-width:1100px){
+  .CartProducts{
+    width: 70%;
+  }
+  .eachSingleProductOfCart img {
+    width: 14%;
+  }
+  .Select{
+    padding: 3px;
+    border-radius: 6px;
+
+  }
+  .DeleteFromCart{
+    padding: 3px;
+  }
+  .name,.price, .qtyLable{
+    font-size: medium;
+  }
+  .TotalPriceDiv{
+    font-size: medium;
+  }
+}
+@media all  and (max-width:600px){
+  .CartProducts{
+    width: 90%;
+  }
+  .eachSingleProductOfCart img {
+    width: 15%;
+  }
+  .Select{
+    padding: 1px;
+    border-radius: 4px;
+  }
+  .DeleteFromCart{
+    padding: 1px;
+  }
+  .name,.price, .qtyLable{
+    font-size:small;
+  }
+  .TotalPriceDiv{
+    font-size: small;
+  }
 }
