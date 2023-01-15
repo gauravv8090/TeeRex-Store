@@ -10,7 +10,9 @@ const Navbar = () => {
   return (
     <div className="Navbar">
       <div className="left">
+        <Link to={"/"} className="ProductTag">
         <h1>TeeRex Store</h1>
+        </Link>
       </div>
 
       <div className="right">
