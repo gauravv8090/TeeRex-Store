@@ -1,5 +1,5 @@
 .FilterAndProductsBox{
-    width: 80%;
+    width: 90%;
     height: 80vh;
     margin: auto;
     /* border: 2px solid blue; */
@@ -45,6 +45,7 @@
 .product{
     max-height: fit-content;
     height: fit-content;
+    width: 300px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .image{
@@ -58,6 +59,29 @@
 }
 .cartButton:hover{
     background-color: rgb(95, 94, 94);
+}
+@media all and (min-width: 850px) and (max-width:1200px){
+    .ProductsDiv{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    }
+}
+@media all and (max-width:850px){
+    .ProductsDiv{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 15px;
+    width: 100%;
+    /* border: 1px solid red; */
+    }
+    .product{
+        margin: auto;
+        /* border: 1px solid green; */
+    }
+    .FilterDiv{
+        display: none;
+    }
 }
 
 

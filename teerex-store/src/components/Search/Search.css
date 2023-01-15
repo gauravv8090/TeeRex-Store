@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  /* max-width: 100%; */
 }
 
 .InputBox {
@@ -14,6 +15,7 @@
   font-size: large;
   padding: 10px;
   width: 20%;
+  /* min-width: 200px; */
   height: 30px;
   font-weight: bold;
 }
@@ -34,3 +36,21 @@
   height: 40px;
   transform: rotate(360deg);
 }
+ @media all and (min-width:780px) and (max-width:1200px){
+  .InputBox{
+    min-width:200px;
+  }
+  .SearchButton{
+    width: 45px;
+    height: 30px;
+  }
+ }
+ @media all and (max-width:779px){
+  .InputBox{
+    min-width:180px;
+  }
+  .SearchButton{
+    width: 45px;
+    height: 30px;
+  }
+ }

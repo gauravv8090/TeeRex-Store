@@ -19,7 +19,7 @@ const Navbar = () => {
         </Link>
         <div className="CartLogoDiv" >
         <Link to={"/cart"} className="CartIcon">
-          <UilShoppingCartAlt size="50" />
+          <UilShoppingCartAlt size="30"  />
         </Link>
           <h2>{cart.length>0 ? cart.length : ''}</h2>
         </div>
