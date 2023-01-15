@@ -12,7 +12,7 @@ const CartContextProvider = ({ children }) => {
       const data= cart.filter((el)=>{
         return +el.id !== id; 
       })
-      console.log(data);
+      console.log(data, "in context");
       SetCart(data);
     }
 
