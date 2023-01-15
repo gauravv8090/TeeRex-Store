@@ -5,80 +5,70 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 import "./CartProducts.css";
 
-
 const CartProducts = () => {
   const { cart, addCart, removeFromCart } = useContext(CartContext);
 
   let [TotalPrice, setTotalPrice] = useState(0);
   // let TotalPrice = 0;
-  
+
   const handelSelectQuantity = (e) => {
     // console.log(typeof cart.quantity);
-    
-    
+
     for (let i = 0; i < cart.length; i++) {
       if (cart[i].id == +e.target.name) {
         if (+cart[i].quantity < +e.target.value) {
           alert(`Sorry, only ${cart[i].quantity} quantity is avaliable!!`);
           e.target.value = +cart[i].quantity;
           // console.log(cart[i].imageURL);
-          
         }
-        const arr= document.querySelectorAll(".qtyImage");
-        arr[i].alt = e.target.value;  
+        const arr = document.querySelectorAll(".qtyImage");
+        arr[i].alt = e.target.value;
       }
     }
-    CalculateTotal()
+    CalculateTotal();
   };
-  
-  const totalPriceCalculated = ()=>{
-    
-    for(let i=0; i<cart.length; i++){
-      TotalPrice += cart[i].price
+
+  const totalPriceCalculated = () => {
+    for (let i = 0; i < cart.length; i++) {
+      TotalPrice += cart[i].price;
     }
     // console.log(TotalPrice)
-  }
+  };
 
-  
-  useEffect(()=>{
-    setTimeout(()=>{
+  useEffect(() => {
+    setTimeout(() => {
       // totalPriceCalculated()
-      CalculateTotal()
-    })
-  }, [cart])
+      CalculateTotal();
+    });
+  }, [cart]);
 
-  console.log(TotalPrice, "TOTAL PRICE")
-  const CalculateTotal = (e)=>{
+  console.log(TotalPrice, "TOTAL PRICE");
+  const CalculateTotal = (e) => {
     // console.log(cart[1].price, "calculating")
     TotalPrice = 0;
-    const arr= document.querySelectorAll(".qtyImage");
+    const arr = document.querySelectorAll(".qtyImage");
     // console.log(arr[0].alt);
 
-    for(let i=0; i<cart.length; i++){
-      TotalPrice += +cart[i].price * +arr[i].alt
+    for (let i = 0; i < cart.length; i++) {
+      TotalPrice += +cart[i].price * +arr[i].alt;
     }
-    console.log(TotalPrice, "UPDATED PRICE")
-    setTotalPrice(TotalPrice)
-    
-  }
+    console.log(TotalPrice, "UPDATED PRICE");
+    setTotalPrice(TotalPrice);
+  };
 
-
-  const handelDeleteFromCart = (id)=>{
+  const handelDeleteFromCart = (id) => {
     console.log(id);
     //   const newCart= cart.filter((el)=>{
     //     return +el.id !== id;
     //   })
-    removeFromCart(id)
+    removeFromCart(id);
     // CalculateTotal()
-    setTimeout(() => {
-      
-    }, 2000);
-    
-  }
+    setTimeout(() => {}, 2000);
+  };
   console.log(cart, "in remove function");
 
-  if(cart.length===0){
-      return <h1>Nothing in the cart</h1>
+  if (cart.length === 0) {
+    return <h1>Nothing in the cart</h1>;
   }
   return (
     <div className="CartProducts">
@@ -91,8 +81,12 @@ const CartProducts = () => {
               <div className="price">Rs. {prod.price}</div>
             </div>
             <div>
-              <label className="qtyLable" >Qty:</label>
-              <select name={prod.id} className='Select' onClick={handelSelectQuantity}>
+              <label className="qtyLable">Qty:</label>
+              <select
+                name={prod.id}
+                className="Select"
+                onClick={handelSelectQuantity}
+              >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -105,13 +99,16 @@ const CartProducts = () => {
                 <option value="10">10</option>
               </select>
             </div>
-            <button onClick={()=>handelDeleteFromCart(prod.id)} className="DeleteFromCart" >Delete</button>
+            <button
+              onClick={() => handelDeleteFromCart(prod.id)}
+              className="DeleteFromCart"
+            >
+              Delete
+            </button>
           </div>
         );
       })}
-      <div className="TotalPriceDiv" >
-        Total Amount: Rs. {TotalPrice}
-      </div>
+      <div className="TotalPriceDiv">Total Amount: Rs. {TotalPrice}</div>
     </div>
   );
 };

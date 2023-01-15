@@ -6,12 +6,12 @@ import { useContext } from "react";
 import { CartContext } from "../../context/cartContext";
 
 const Navbar = () => {
-  const {cart} = useContext(CartContext);
+  const { cart } = useContext(CartContext);
   return (
     <div className="Navbar">
       <div className="left">
         <Link to={"/"} className="ProductTag">
-        <h1>TeeRex Store</h1>
+          <h1>TeeRex Store</h1>
         </Link>
       </div>
 
@@ -19,11 +19,11 @@ const Navbar = () => {
         <Link to={"/"} className="ProductTag">
           <h1> Products</h1>
         </Link>
-        <div className="CartLogoDiv" >
-        <Link to={"/cart"} className="CartIcon">
-          <UilShoppingCartAlt size="30"  />
-        </Link>
-          <h2>{cart.length>0 ? cart.length : ''}</h2>
+        <div className="CartLogoDiv">
+          <Link to={"/cart"} className="CartIcon">
+            <UilShoppingCartAlt size="30" />
+          </Link>
+          <h2>{cart.length > 0 ? cart.length : ""}</h2>
         </div>
       </div>
     </div>
